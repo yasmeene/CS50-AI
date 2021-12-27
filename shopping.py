@@ -78,10 +78,12 @@ def load_data(filename):
         Nov = 10,
         Dec = 11,
     )
+    
     month_int['June'] = month_int.pop('Jun')
+    
     # open the file
-    with open(filename, 'r') as file:
-        rows = list(csv.DictReader(file))
+    with open(filename, 'r', newline='') as file:
+        rows = csv.DictReader(file)
         
         for row in rows:
             evidence.append([
@@ -94,7 +96,7 @@ def load_data(filename):
                 int(row["Browser"]),
                 int(row["Region"]),
                 int(row["TrafficType"]),
-                1 if row["VisitorType"]=="Returning_Visitor" else 0,
+                1 if row["VisitorType"]== "Returning_Visitor" else 0,
                 1 if row["Weekend"] == "TRUE" else 0,
                 
                 # start turning values into floats
@@ -104,11 +106,11 @@ def load_data(filename):
                 float(row["BounceRates"]),
                 float(row["ExitRates"]),
                 float(row["PageValues"]),
-                float(row["SpecialDay"])
+                float(row["SpecialDay"]),
             ])
             labels.append(1 if row["Revenue"] == "TRUE" else 0)
             
-    return (evidence, labels)
+    return evidence, labels
             
         
 
