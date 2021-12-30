@@ -58,7 +58,7 @@ def transition_model(corpus, page, damping_factor):
     a link at random chosen from all pages in the corpus.
     """
 
-    n_links = len(corpus[page])
+    # n_links = len(corpus[page])
     n_pages = len(corpus)
     distribution = {}
 
@@ -97,7 +97,7 @@ def sample_pagerank(corpus, damping_factor, n):
     counts[samples] += 1
 
     # loops through all the samples
-    for i in range(n - 1):
+    for i in range(0, n - 1):
         # runs our model through transision model to get probabilities so we can what % of times we should land on a specified page
         model = transition_model(corpus, samples, damping_factor)
 
@@ -121,29 +121,31 @@ def iterate_pagerank(corpus, damping_factor):
     PageRank values should sum to 1.
     """
     N = len(corpus)
-    dist = {}
+    dist = {}.fromkeys(corpus.keys(), 1/N)
     current = {}
-
-    # assignes a value of 1/N for each page in the corpus
-    for page in corpus:
-        dist[page] = 1/N
-
+    
+    
     repeat = True
     while repeat:
         repeat = False
 
-        sum = 0
         for page in corpus:
             # makes a copy of the distribution
             current[page] = dist[page]
 
             sum = 0
+            for i in corpus:
+                if page in corpus[i]:
             # kinda replicates PR(i) / NumLinks(i) from PageRank equation 
-            sum += dist[page] / len(corpus[page])
+                    sum += dist[i] / len(corpus[i])
             # using PageRank equation
-            dist[page] = (1 - damping_factor) / N + damping_factor * sum
-            current[page] = abs(current[page] - dist[page])
-            repeat = repeat or current[page] > 0.001
+            dist[page] = ((1 - damping_factor) / N) + (damping_factor * sum)
+            repeat = (abs(current[page] - dist[page]) > 0.0001)
+            
+    t = 0
+    for page in dist:
+        t += dist[page]
+
 
     return dist
 
