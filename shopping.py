@@ -1,5 +1,6 @@
 import csv
 import sys
+import calendar
 
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
@@ -64,55 +65,55 @@ def load_data(filename):
     labels = []
     
     # turn months into ints starting from 0
-    month_int = dict(
-        Jan = 0,
-        Feb = 1,
-        Mar = 2, 
-        Apr = 3, 
-        May = 4, 
-        Jun = 5, 
-        Jul = 6, 
-        Aug = 7, 
-        Sep = 8, 
-        Oct = 9,
-        Nov = 10,
-        Dec = 11,
-    )
+    month_int = {name: num -1 for num, name in enumerate(calendar.month_abbr) if num}
+    # month_int = dict(
+    #     Jan = 0,
+    #     Feb = 1,
+    #     Mar = 2, 
+    #     Apr = 3, 
+    #     May = 4, 
+    #     Jun = 5, 
+    #     Jul = 6, 
+    #     Aug = 7, 
+    #     Sep = 8, 
+    #     Oct = 9,
+    #     Nov = 10,
+    #     Dec = 11,
+    # )
     
     month_int['June'] = month_int.pop('Jun')
     
     # open the file
-    with open(filename, 'r', newline='') as file:
+    with open(filename, 'r') as file:
         rows = csv.DictReader(file)
-        
+        next(rows)
         for row in rows:
+            
             evidence.append([
-                # start turining values into ints
-                int(row["Administrative"]),
-                int(row["Informational"]),
-                int(row["ProductRelated"]),
-                month_int[row["Month"]],
-                int(row["OperatingSystems"]),
-                int(row["Browser"]),
-                int(row["Region"]),
-                int(row["TrafficType"]),
-                1 if row["VisitorType"]== "Returning_Visitor" else 0,
-                1 if row["Weekend"] == "TRUE" else 0,
-                
-                # start turning values into floats
-                float(row["Administrative_Duration"]),
-                float(row["Informational_Duration"]),
-                float(row["ProductRelated_Duration"]),
-                float(row["BounceRates"]),
-                float(row["ExitRates"]),
-                float(row["PageValues"]),
-                float(row["SpecialDay"]),
+                # start turining values into ints and floats
+                int(row['Administrative']),
+                float(row['Administrative_Duration']),
+                int(row['Informational']),
+                float(row['Informational_Duration']),
+                int(row['ProductRelated']),
+                float(row['ProductRelated_Duration']),
+                float(row['BounceRates']),
+                float(row['ExitRates']),
+                float(row['PageValues']),
+                float(row['SpecialDay']),
+                month_int[row['Month']],
+                int(row['OperatingSystems']),
+                int(row['Browser']),
+                int(row['Region']),
+                int(row['TrafficType']),
+                1 if row['VisitorType'] == 'Returning_Visitor' else 0,
+                1 if row['Weekend'] == 'TRUE' else 0
             ])
             labels.append(1 if row["Revenue"] == "TRUE" else 0)
             
-    return evidence, labels
-            
-        
+    return (evidence, labels)
+    
+
 
 
 def train_model(evidence, labels):
