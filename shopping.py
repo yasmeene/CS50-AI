@@ -1,6 +1,5 @@
 import csv
 import sys
-import calendar
 
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
@@ -65,23 +64,22 @@ def load_data(filename):
     labels = []
     
     # turn months into ints starting from 0
-    month_int = {name: num -1 for num, name in enumerate(calendar.month_abbr) if num}
-    # month_int = dict(
-    #     Jan = 0,
-    #     Feb = 1,
-    #     Mar = 2, 
-    #     Apr = 3, 
-    #     May = 4, 
-    #     Jun = 5, 
-    #     Jul = 6, 
-    #     Aug = 7, 
-    #     Sep = 8, 
-    #     Oct = 9,
-    #     Nov = 10,
-    #     Dec = 11,
-    # )
+    month_int = dict(
+        Jan = 0,
+        Feb = 1,
+        Mar = 2, 
+        Apr = 3, 
+        May = 4, 
+        June = 5, 
+        Jul = 6, 
+        Aug = 7, 
+        Sep = 8, 
+        Oct = 9,
+        Nov = 10,
+        Dec = 11,
+    )
     
-    month_int['June'] = month_int.pop('Jun')
+    # month_int['June'] = month_int.pop('Jun')
     
     # open the file
     with open(filename, 'r') as file:
