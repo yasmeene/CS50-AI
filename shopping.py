@@ -1,5 +1,6 @@
 import csv
 import sys
+import calendar
 
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
@@ -62,31 +63,30 @@ def load_data(filename):
 
     evidence = []
     labels = []
-    
+
     # turn months into ints starting from 0
-    month_int = dict(
-        Jan = 0,
-        Feb = 1,
-        Mar = 2, 
-        Apr = 3, 
-        May = 4, 
-        June = 5, 
-        Jul = 6, 
-        Aug = 7, 
-        Sep = 8, 
-        Oct = 9,
-        Nov = 10,
-        Dec = 11,
-    )
-    
+    month_int = {
+        'Jan': 0,
+        'Feb': 1,
+        'Mar': 2,
+        'Apr': 3,
+        'May': 4,
+        'June': 5,
+        'Jul': 6,
+        'Aug': 7,
+        'Sep': 8,
+        'Oct': 9,
+        'Nov': 10,
+        'Dec': 11,
+    }
+
     # month_int['June'] = month_int.pop('Jun')
-    
+
     # open the file
     with open(filename, 'r') as file:
         rows = csv.DictReader(file)
-        next(rows)
         for row in rows:
-            
+
             evidence.append([
                 # start turining values into ints and floats
                 int(row['Administrative']),
@@ -108,10 +108,8 @@ def load_data(filename):
                 1 if row['Weekend'] == 'TRUE' else 0
             ])
             labels.append(1 if row["Revenue"] == "TRUE" else 0)
-            
-    return (evidence, labels)
-    
 
+    return (evidence, labels)
 
 
 def train_model(evidence, labels):
@@ -141,26 +139,27 @@ def evaluate(labels, predictions):
     """
     sensitivity = float(0)
     specificity = float(0)
-    
+
     negitave = float(0)
     positive = float(0)
-    
+
     for lable, prediction in zip(labels, predictions):
-        
+
         if lable == 1:
             positive += 1
             if lable == prediction:
                 sensitivity += 1
-        
+
         if lable == 0:
             negitave += 1
             if lable == prediction:
                 specificity += 1
-        
+
     sensitivity /= positive
     specificity /= negitave
-    
+
     return sensitivity, specificity
+
 
 if __name__ == "__main__":
     main()
