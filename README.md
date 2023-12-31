@@ -15,3 +15,19 @@ In this 3x3 Minesweeper game, for example, the three 1 values indicate that each
 Given this information, a logical player could conclude that there must be a mine in the lower-right cell and that there is no mine in the upper-left cell, for only in that case would the numerical labels on each of the other cells be accurate.
 
 The goal of the game is to flag (i.e., identify) each of the mines. In many implementations of the game, including the one in this project, the player can flag a mine by right-clicking on a cell (or two-finger clicking, depending on the computer).
+
+## Getting Started
+
+### Dependencies
+
+Python 3.10. and Python package installer, Pip3
+
+### Executing program
+
+* Open the project in your terminal
+* install dependencies
+`$pip3 install -r requirements.txt`
+* Run the following
+```
+$python runner.py
+```
