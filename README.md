@@ -34,11 +34,13 @@ To incorporate this rule into how we parse a sentence (S), we’ll also need to 
 
 ### Dependencies
 
-Python 3.10.
+Python 3.10. and Python package installer, Pip3
 
 ### Executing program
 
 * Open the project in your terminal
+* Download dependencies
+`$ pip install -r requirements.txt`
 * Run the following
 ```
 $ python parser.py
