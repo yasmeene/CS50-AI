@@ -30,3 +30,18 @@ The binary constraints on a variable are given by its overlap with neighboring v
 For this problem, we’ll add the additional constraint that all words must be different: the same word should not be repeated multiple times in the puzzle.
 
 The challenge ahead, then, is write a program to find a satisfying assignment: a different word (from a given vocabulary list) for each variable such that all of the unary and binary constraints are met.
+
+## Getting Started
+
+### Dependencies
+
+Python 3.10.
+
+### Executing program
+
+* Open the project in your terminal
+* Run the following
+```
+$ python generate.py data/structure1.txt data/words1.txt output.png
+```
+_structure/words can be replaced with any structures/words in the data directory_
