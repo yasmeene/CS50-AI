@@ -25,6 +25,6 @@ Python 3.10.
 * Open the project in your terminal
 * Run the following
 ```
-$python heredity.py (data/familyX.csv)
+$python heredity.py data/familyX.csv
 ```
 
