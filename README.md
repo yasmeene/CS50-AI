@@ -39,3 +39,4 @@ Python 3.10.
 ```
 $ python pagerank.py corpus0
 ```
+_corpus0 can be replaced with corpus1, corpus2, or your own corpus_
