@@ -29,3 +29,17 @@ Of course, noun phrases might not always be as simple as a single word like "Hol
 In this rule, we say that an NP (a “noun phrase”) could be either just a noun (N) or a determiner (Det) followed by a noun, where determiners include words like "a", "the", and "my". The vertical bar (|) just indicates that there are multiple possible ways to rewrite an NP, with each possible rewrite separated by a bar.
 
 To incorporate this rule into how we parse a sentence (S), we’ll also need to modify our S -> N V rule to allow for noun phrases (NPs) as the subject of our sentence. See how? And to account for more complex types of noun phrases, we may need to modify our grammar even further.
+
+## Getting Started
+
+### Dependencies
+
+Python 3.10.
+
+### Executing program
+
+* Open the project in your terminal
+* Run the following
+```
+$ python parser.py
+```
