@@ -24,11 +24,13 @@ Instead, we’ll measure two values: sensitivity (also known as the “true posi
 
 ### Dependencies
 
-Python 3.10.
+Python 3.10., Scikit-Learn and Python package installer, Pip3
 
 ### Executing program
 
 * Open the project in your terminal
+* Install Scikit-learn
+`$ pip install scikit-learn`
 * Run the following
 ```
 $ python shopping.py shopping.csv
