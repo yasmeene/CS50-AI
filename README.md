@@ -39,6 +39,22 @@ Several such data sets exist, but for this project, we’ll use the German Traff
 
 [![Demo](https://img.youtube.com/vi/CiIyx_1Vi-w/0.jpg)](https://www.youtube.com/watch?v=CiIyx_1Vi-w)
 
+## Getting Started
+
+### Dependencies
+
+Python 3.10. and Python package installer, Pip3
+
+### Executing program
+
+* Install dependencies
+`$ pip3 install -r requirements.txt`
+* Download the GTSRB dataset from https://cdn.cs50.net/ai/2020/x/projects/5/gtsrb.zip (or use your own)
+* Run the following
+```
+$ python traffic.py [data_set_goes_here]
+```
+
 **2 convolution and max-pooling layers**
 
 - made my data a little more accurate in comparison to only one layer
