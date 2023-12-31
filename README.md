@@ -15,3 +15,19 @@ For example, consider a simple puzzle with just a single character named A. A sa
 Logically, we might reason that if A were a knight, then that sentence would have to be true. But we know that the sentence cannot possibly be true, because A cannot be both a knight and a knave – we know that each character is either a knight or a knave, but not both. So, we could conclude, A must be a knave.
 
 That puzzle was on the simpler side. With more characters and more sentences, the puzzles can get trickier! Your task in this problem is to determine how to represent these puzzles using propositional logic, such that an AI running a model-checking algorithm could solve these puzzles for us.
+
+## Getting Started
+
+### Dependencies
+
+Python 3.10.
+
+### Executing program
+
+* Open the project in your terminal
+* Run the following
+```
+$python puzzle.py
+```
+
+
