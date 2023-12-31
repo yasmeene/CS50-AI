@@ -25,3 +25,17 @@ One heuristic might be that an “important” page is one that many other pages
 But this definition isn’t perfect: if someone wants to make their page seem more important, then under this system, they could simply create many other pages that link to their desired page to artificially inflate its rank.
 
 For that reason, the PageRank algorithm was created by Google’s co-founders (including Larry Page, for whom the algorithm was named). In PageRank’s algorithm, a website is more important if it is linked to by other important websites, and links from less important websites have their links weighted less. This definition seems a bit circular, but it turns out that there are multiple strategies for calculating these rankings.
+
+## Getting Started
+
+### Dependencies
+
+Python 3.10.
+
+### Executing program
+
+* Open the project in your terminal
+* Run the following
+```
+$ python pagerank.py corpus0
+```
