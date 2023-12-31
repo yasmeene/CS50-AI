@@ -38,4 +38,6 @@ More sophisticated question-answering systems might employ other strategies (ana
 * Download dependencies
 ` $ pip install -r requirements.txt`
 * Run the script with a corpus of .txt files (you can use the one provided)
-```$ python questions.py [your_corpus]```
+```
+$ python questions.py [your_corpus]
+```
