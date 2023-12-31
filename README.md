@@ -13,3 +13,18 @@ Every child inherits one copy of the GJB2 gene from each of their parents. If a 
 We can attempt to model all of these relationships by forming a Bayesian Network of all the relevant variables, as in the one below, which considers a family of two parents and a single child.
 
 ![gene_network](https://github.com/yasmeene/CS50-AI/assets/82289320/900c5992-6499-48ce-b4e2-df1fc89ae36b)
+
+## Getting Started
+
+### Dependencies
+
+Python 3.10.
+
+### Executing program
+
+* Open the project in your terminal
+* Run the following
+```
+$python heredity.py (data/familyX.csv)
+```
+
